@@ -61,9 +61,3 @@ jobs:
           GITHUB_READ_ORG_TOKEN: ${{ secrets.GT_READ_ORG }}
           GITHUB_DISPATCH_TOKEN: ${{ secrets.GT_DISPATCH }}
           SLACK_DEVNET_SECRET: ${{ secrets.SLACK_DEVNET_SECRET }}
-          BINARIES_COMMIT_SHA: ${{ steps.comment-branch.outputs.head_sha }}
-      - name: Comment not found
-        if: steps.check.outputs.triggered != 'true'
-        run: echo "Comment \"$COMMENT\" not matched"
-        env:
-          COMMENT: ${{ matrix.make.comment }}
